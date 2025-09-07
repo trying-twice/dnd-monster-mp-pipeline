@@ -71,9 +71,11 @@ On new Linux systems (including VMs and WSL), you may find that you need to run 
 Follow these steps to add your user to the `docker` group, which is the official and recommended way to manage Docker permissions.
 
 **1. Add your user to the `docker` group.**
-*(The group may already exist, which is fine.)*```bash
+*(The group may already exist, which is fine.)*
 # This command creates the 'docker' group if it doesn't exist
+```bash
 sudo groupadd docker
+```
 
 # This command adds your current user to the 'docker' group
 sudo usermod -aG docker $USER
