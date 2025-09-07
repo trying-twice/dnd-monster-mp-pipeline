@@ -72,14 +72,14 @@ Follow these steps to add your user to the `docker` group, which is the official
 
 **1. Add your user to the `docker` group.**
 *(The group may already exist, which is fine.)*
-# This command creates the 'docker' group if it doesn't exist
+## This command creates the 'docker' group if it doesn't exist
+
 ```bash
 sudo groupadd docker
 ```
 
-# This command adds your current user to the 'docker' group
+## This command adds your current user to the 'docker' group
 sudo usermod -aG docker $USER
-  
 
 2. IMPORTANT: Apply the new group membership.
 For the changes to take effect, you must either log out and log back in or completely reboot your system.
@@ -88,7 +88,7 @@ For the changes to take effect, you must either log out and log back in or compl
 After logging back in, open a new terminal and test that you can run Docker commands without sudo.
 code.
     
-# This command should now run without asking for a password
+## This command should now run without asking for a password
 docker ps
 
   
