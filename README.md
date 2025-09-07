@@ -19,15 +19,15 @@ This project is a simple, orchestrated data pipeline built with Prefect and Dock
 *   **Pydantic**: For data validation.
 
 ## Requirements
-- Limit fetched results via API filters or pagination ✅
+- Limit fetched results via API filters or pagination ✅   
 (The pipeline first fetches the full list of monster names, then selects a small, configurable number of them (e.g., 5) before fetching their heavy, detailed data. This limits the main API load to only the monsters we need.)
-- Make pipeline idempotent (don’t re-fetch if file exists) ✅
+- Make pipeline idempotent (don’t re-fetch if file exists) ✅   
 (Monster selection is seeded with the current date, guaranteeing the same "random" monsters are chosen for any run on the same day. This makes the pipeline's output reproducible.)
-- Add CLI arguments for monster selection ✅
+- Add CLI arguments for monster selection ✅   
 (The main.py entrypoint uses Python's standard argparse library to accept a --num-monsters command-line argument, which is then passed as a parameter to the main Prefect flow.)
-- Cache API response locally ✅
+- Cache API response locally ✅   
 (The Prefect @task decorator is configured with persist_result=True and cache_key_fn=task_input_hash on API-calling functions. This automatically saves a task's output and reuses it on subsequent runs with the same inputs, preventing re-fetching.)
-- Add unit tests for task components ❌
+- Add unit tests for task components ❌   
 ( Unit tests would be added using a framework like pytest to validate the logic of individual tasks (especially transformation and validation) by providing mock inputs and asserting their outputs.)
 
 ---
