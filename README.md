@@ -34,7 +34,7 @@ cd dnd-monster-pipeline
 
 ### 2. Start the Services
 This command starts the Prefect server and database in the background.```bash
-docker-compose up -d
+docker compose up -d
 ```
 You can view the Prefect dashboard at [http://localhost:4200](http://localhost:4200).
 
@@ -43,12 +43,12 @@ Execute the pipeline inside the running container.
 
 **To run with the default of 5 monsters:**
 ```bash
-docker-compose exec prefect-server python src/main.py
+docker compose exec prefect-server python src/main.py
 ```
 
 **To specify a different number of monsters:**
 ```bash
-docker-compose exec prefect-server python src/main.py --num-monsters 15
+docker compose exec prefect-server python src/main.py --num-monsters 15
 ```
 
 ---
@@ -59,5 +59,34 @@ After the pipeline runs, you will find a **`monsters.json`** file in your projec
 ## Shutting Down
 To stop and remove the containers, run:
 ```bash
-docker-compose down
+docker compose down
 ```
+
+## Note for Linux Users: Handling the `sudo` Requirement
+
+On new Linux systems (including VMs and WSL), you may find that you need to run all `docker` commands with `sudo`. This is a standard permissions issue that should be fixed with a one-time setup to avoid security risks and file ownership problems.
+
+### One-Time Setup Instructions
+
+Follow these steps to add your user to the `docker` group, which is the official and recommended way to manage Docker permissions.
+
+**1. Add your user to the `docker` group.**
+*(The group may already exist, which is fine.)*```bash
+# This command creates the 'docker' group if it doesn't exist
+sudo groupadd docker
+
+# This command adds your current user to the 'docker' group
+sudo usermod -aG docker $USER
+  
+
+2. IMPORTANT: Apply the new group membership.
+For the changes to take effect, you must either log out and log back in or completely reboot your system.
+
+3. Verify the fix.
+After logging back in, open a new terminal and test that you can run Docker commands without sudo.
+code.
+    
+# This command should now run without asking for a password
+docker ps
+
+  
