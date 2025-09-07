@@ -92,10 +92,15 @@ sudo groupadd docker
 ```
 
 ## This command adds your current user to the 'docker' group
+```bash
 sudo usermod -aG docker $USER
+```
 
 2. IMPORTANT: Apply the new group membership.
-For the changes to take effect, you must either log out and log back in or completely reboot your system.
+
+```bash
+newgrp docker
+```
 
 3. Verify the fix.
 After logging back in, open a new terminal and test that you can run Docker commands without sudo.
