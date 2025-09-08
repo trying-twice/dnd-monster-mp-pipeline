@@ -71,7 +71,7 @@ docker compose exec prefect-server python src/main.py --num-monsters 15
   - The Prefect `@task` decorator is configured with `persist_result=True` and `cache_key_fn=task_input_hash`. This automatically saves a task's output and reuses it on subsequent runs with the same inputs, preventing re-fetching of already seen monsters.
 
 - **❌ Add unit tests for task components**
-  - This is a planned future improvement. Unit tests would be added using `pytest` to validate the logic of individual transformation and validation tasks.
+  - Unit tests would be added using `pytest` to validate the logic of individual transformation and validation tasks.
 
 ---
 
