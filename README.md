@@ -6,7 +6,7 @@ This project is an orchestrated data pipeline that fetches monster data from the
 *   **Python**
 *   **Prefect**: For pipeline orchestration.
 *   **Docker** & **Docker Compose**: For containerization and running services.
-*   **Pantic**: For data validation.
+*   **Pydantic**: For data validation.
 
 ---
 
